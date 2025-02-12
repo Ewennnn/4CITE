@@ -1,117 +1,88 @@
 import { describe } from "mocha";
 import { BankUser } from "./user/user";
-import { expect } from "chai";
+import { expect, use } from "chai";
 import { save } from "./bank-controller";
 import { clear } from "./bank-repository";
 import { isValidEmail } from "./bank-service";
 
 describe("Bank user tests", () => {
 
+    let user: BankUser;
+
     beforeEach(() => {
         clear()
-    })
 
-    it("should save new user", () => {
-        const bankUser = new BankUser(
+        user = new BankUser(
             "name",
             "user",
             "user.name@mail.com"
         )
+    })
 
-        const result = save(bankUser)
+    it("should save new user", () => {
+        const result = save(user)
 
         expect(result).to.be.true
     })
 
     it("should save two users", () => {
-        const bankUser1 = new BankUser(
-            "name",
-            "user",
-            "user.name@mail.com"
-        )
-        save(bankUser1)
+        save(user)
 
-        const bankUser2 = new BankUser(
+        const newUser = new BankUser(
             "name1",
             "user1",
             "user1.name1@mail.com"
         )
 
-        const result = save(bankUser2)
+        const result = save(newUser)
 
         expect(result).to.be.true
     })
 
     it("should not save same user twice", () => {
-        const bankUser = new BankUser(
-            "name",
-            "user",
-            "user.name@mail.com"
-        )
-
-        save(bankUser)
-        const result = save(bankUser)
+        save(user)
+        const result = save(user)
 
 
         expect(result).to.be.false
     })
 
     it("should not save if email not contains '@'", () => {
-        const bankUser = new BankUser(
-            "name",
-            "user",
-            "user.namemail.com"
-        )
+        user.email = "user.namemail.com"
 
-        const result = save(bankUser)
+        const result = save(user)
 
         expect(result).to.be.false
     })
 
     it("should not save if email contains spaces", () => {
-        const bankUser = new BankUser(
-            "name",
-            "user",
-            "user.name @mail.com"
-        )
+        user.email = "user.name @mail.com"
 
-        const result = save(bankUser)
+        const result = save(user)
 
         expect(result).to.be.false
     })
 
     it("should not save if no email is entered", () => {
-        const bankUser = new BankUser(
-            "name",
-            "user",
-            ""
-        )
+        user.email = ""
 
-        const result = save(bankUser)
+        const result = save(user)
 
         expect(result).to.be.false
     })
 
     it("should not save if username field is missing", () => {
-        const bankUser = new BankUser(
-            "",
-            "user",
-            "user.name@mail.com"
-        )
+        user.firstname = ""
 
-        const result = save(bankUser)
+        const result = save(user)
 
         expect(result).to.be.false
     })
 
     it("should not save if lastname field is missing", () => {
-        const bankUser = new BankUser(
-            "name",
-            "",
-            "user.name@mail.com"
-        )
+        user.lastname = ""
 
-        const result = save(bankUser)
+        const result = save(user)
 
         expect(result).to.be.false
     })
