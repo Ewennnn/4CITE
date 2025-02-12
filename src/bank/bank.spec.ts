@@ -2,8 +2,14 @@ import { describe } from "mocha";
 import { BankUser } from "./user/user";
 import { expect } from "chai";
 import { save } from "./bank-controller";
+import { clear } from "./bank-repository";
 
 describe("Bank user tests", () => {
+
+    beforeEach(() => {
+        clear()
+    })
+
     it("should save new user", () => {
         const bankUser = new BankUser(
             "name",
@@ -89,6 +95,18 @@ describe("Bank user tests", () => {
         const bankUser = new BankUser(
             "",
             "user",
+            "user.name@mail.com"
+        )
+
+        const result = save(bankUser)
+
+        expect(result).to.be.false
+    })
+
+    it("should not save if lastname field is missing", () => {
+        const bankUser = new BankUser(
+            "name",
+            "",
             "user.name@mail.com"
         )
 

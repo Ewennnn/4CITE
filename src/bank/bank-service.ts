@@ -11,6 +11,10 @@ export function saveBankUser(user: BankUser): boolean {
         return false
     }
 
+    if(isBlank(user.lastname)) {
+        return false
+    }
+
     if (!containsArobase(user.email)) {
         return false
     }
