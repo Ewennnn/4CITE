@@ -60,4 +60,16 @@ describe("Bank user tests", () => {
 
         expect(result).to.be.false
     })
+
+    it("should not save if email contains spaces", () => {
+        const bankUser = new BankUser(
+            "name",
+            "user",
+            "user.name @mail.com"
+        )
+
+        const result = save(bankUser)
+
+        expect(result).to.be.false
+    })
 })
