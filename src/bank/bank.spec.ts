@@ -3,6 +3,7 @@ import { BankUser } from "./user/user";
 import { expect } from "chai";
 import { save } from "./bank-controller";
 import { clear } from "./bank-repository";
+import { isValidEmail } from "./bank-service";
 
 describe("Bank user tests", () => {
 
@@ -113,5 +114,13 @@ describe("Bank user tests", () => {
         const result = save(bankUser)
 
         expect(result).to.be.false
+    })
+})
+
+describe("Email checks tests", () => {
+    it("should validate email 'jean@122.31.5.21'", () => {
+        const result = isValidEmail("jean@122.31.5.21")
+
+        expect(result).to.be.true
     })
 })

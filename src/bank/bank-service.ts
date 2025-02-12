@@ -32,11 +32,19 @@ function isValidUser(user: BankUser) {
         return false
     }
 
-    if (!containsArobase(user.email)) {
+    if (!isValidEmail(user.email)) {
         return false
     }
 
-    if(containsSpaces(user.email)) {
+    return true
+}
+
+export function isValidEmail(email: String): boolean {
+    if (!containsArobase(email)) {
+        return false
+    }
+
+    if(containsSpaces(email)) {
         return false
     }
 
