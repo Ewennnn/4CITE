@@ -129,4 +129,10 @@ describe("Email checks tests", () => {
 
         expect(result).to.be.true
     })
+
+    it("should validate email 'jean+spam@gmail.com'", () => {
+        const result = isValidEmail("jean+spam@gmail.com")
+
+        expect(result).to.be.true
+    })
 })
