@@ -1,8 +1,8 @@
 import { describe } from "mocha";
 import { substract } from "./calculator";
-import { assert, expect } from "chai";
+import { expect } from "chai";
 
-describe("Calculator tests", () => {
+describe("Substraction tests", () => {
     it("should return 0 when substract 0 and 0", () => {
         const result = substract(0, 0);
 
