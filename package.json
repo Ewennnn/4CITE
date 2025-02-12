@@ -3,14 +3,19 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "ts": "npx tsc && node ./build/index.js",
-    "test": "test"
+    "build": "npx tsc",
+    "test": "npm run build && mocha ./build"
   },
   "author": "Ewennn_",
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@types/chai": "^5.0.1",
+    "@types/mocha": "^10.0.10",
+    "@types/sinon": "^17.0.3",
+    "chai": "^5.1.2",
     "mocha": "^11.1.0",
+    "sinon": "^19.0.2",
     "typescript": "^5.7.3"
   }
 }
