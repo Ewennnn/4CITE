@@ -35,7 +35,7 @@ describe("Bank user tests", () => {
         expect(result).to.be.true
     })
 
-    it("should not save two same users", () => {
+    it("should not save same user twice", () => {
         const bankUser = new BankUser(
             "name",
             "user",
@@ -45,6 +45,18 @@ describe("Bank user tests", () => {
         save(bankUser)
         const result = save(bankUser)
 
+
+        expect(result).to.be.false
+    })
+
+    it("should not save if email not contains '@'", () => {
+        const bankUser = new BankUser(
+            "name",
+            "user",
+            "user.namemail.com"
+        )
+
+        const result = save(bankUser)
 
         expect(result).to.be.false
     })

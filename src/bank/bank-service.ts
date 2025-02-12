@@ -5,7 +5,11 @@ export function saveBankUser(user: BankUser): boolean {
     if(exists(user)) {
         return false
     }
-    
+
+    if (user.email.indexOf("@") < 0) {
+        return false
+    }
+
     persist(user)
     return exists(user)
 }
