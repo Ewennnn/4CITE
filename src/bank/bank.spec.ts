@@ -34,4 +34,18 @@ describe("Bank user tests", () => {
 
         expect(result).to.be.true
     })
+
+    it("should not save two same users", () => {
+        const bankUser = new BankUser(
+            "name",
+            "user",
+            "user.name@mail.com"
+        )
+
+        save(bankUser)
+        const result = save(bankUser)
+
+
+        expect(result).to.be.false
+    })
 })
