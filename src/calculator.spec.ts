@@ -58,4 +58,9 @@ describe("Division tests", () => {
 
         expect(result).to.equals(4)
     })
+
+    it("should throws when divide by 0", () => {
+
+        expect(() => divide(1, 0)).to.throw("Divide by 0")
+    })
 })
