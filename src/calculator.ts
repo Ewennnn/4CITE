@@ -7,5 +7,5 @@ export function divide(a: number, b: number): number {
         return a
     }
 
-    return 0.5
+    return a / b
 }

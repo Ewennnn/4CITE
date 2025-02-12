@@ -46,4 +46,10 @@ describe("Division tests", () => {
 
         expect(result).to.equals(0.5)
     })
+
+    it("should return 1/3 when divide 1 by 3", () => {
+        const result = divide(1, 3)
+
+        expect(result).to.equals(1/3)
+    })
 })
