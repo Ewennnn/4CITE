@@ -15,4 +15,23 @@ describe("Bank user tests", () => {
 
         expect(result).to.be.true
     })
+
+    it("should save two users", () => {
+        const bankUser1 = new BankUser(
+            "name",
+            "user",
+            "user.name@mail.com"
+        )
+        save(bankUser1)
+
+        const bankUser2 = new BankUser(
+            "name1",
+            "user1",
+            "user1.name1@mail.com"
+        )
+
+        const result = save(bankUser2)
+
+        expect(result).to.be.true
+    })
 })
