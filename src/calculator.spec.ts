@@ -14,4 +14,10 @@ describe("Calculator tests", () => {
 
         expect(result).to.equals(0)
     })
+
+    it("should return 1 when substract 2 and 1", () => {
+        const result = substract(2, 1);
+
+        expect(result).to.equals(1)
+    })
 })
