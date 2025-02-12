@@ -1,5 +1,5 @@
 import { describe } from "mocha";
-import { substract } from "./calculator";
+import { divide, substract } from "./calculator";
 import { expect } from "chai";
 
 describe("Substraction tests", () => {
@@ -25,5 +25,13 @@ describe("Substraction tests", () => {
         const result = substract(1, 2);
 
         expect(result).to.equals(-1)
+    })
+})
+
+describe("Division tests", () => {
+    it("should return 1 when divide 1 by 1", () => {
+        const result = divide(1, 1);
+
+        expect(result).to.equals(1)
     })
 })
