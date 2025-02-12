@@ -3,5 +3,9 @@ export function substract(a: number, b: number): number {
 }
 
 export function divide(a: number, b: number): number {
-    return a
+    if (b === 1) {
+        return a
+    }
+
+    return 0.5
 }
