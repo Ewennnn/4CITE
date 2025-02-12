@@ -7,14 +7,30 @@ export function saveBankUser(user: BankUser): boolean {
         return false
     }
 
-    if (user.email.indexOf("@") < 0) {
+    if (!containsArobase(user.email)) {
         return false
     }
 
-    if(user.email.indexOf(" ") >= 0) {
+    if(containsSpaces(user.email)) {
         return false
     }
 
     persist(user)
     return exists(user)
+}
+
+/**
+ * @param email User email.
+ * @returns True if email contains '@'.
+ */
+function containsArobase(email: String): boolean {
+    return email.indexOf("@") >= 0
+}
+
+/**
+ * @param email User email.
+ * @returns True if email contains ' '.
+ */
+function containsSpaces(email: String): boolean {
+    return email.indexOf(" ") >= 0
 }
