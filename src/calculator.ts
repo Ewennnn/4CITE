@@ -13,3 +13,15 @@ export function divide(a: number, b: number): number {
 
     return a / b
 }
+
+export function multiply(a: number, b: number): number {
+    if (a === Number.MAX_VALUE && b > 1) {
+        throw new Error("Infinity value");
+    }
+    if (a === Number.MIN_VALUE && b < 1) {
+        throw new Error("Infinity value");
+    }
+
+    return a * b;
+}
+
