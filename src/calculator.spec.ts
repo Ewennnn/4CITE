@@ -31,6 +31,12 @@ describe("Substraction tests", () => {
         
         expect(() => substract(Number.MIN_VALUE, 1)).to.throw("Infinity")
     })
+
+    it("should return Number.MIN_VALUE when substract Number.MIN_VALUE and 0", () => {
+        const result = substract(Number.MIN_VALUE, 0)
+
+        expect(result).to.be.equals(Number.MIN_VALUE)
+    })
 })
 
 describe("Division tests", () => {
