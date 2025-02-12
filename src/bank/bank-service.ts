@@ -1,8 +1,25 @@
-import { use } from "chai";
 import { exists, persist } from "./bank-repository";
 import { BankUser } from "./user/user";
 
+/**
+ * Check and save the user.
+ * @param user User to save.
+ * @returns True if user is saved. Else false.
+ */
 export function saveBankUser(user: BankUser): boolean {
+    if(!isValidUser(user)) {
+        return false
+    }
+
+    persist(user)
+    return exists(user)
+}
+
+/**
+ * @param user User to validate.
+ * @returns True if all conditions to save new user is checked.
+ */
+function isValidUser(user: BankUser) {
     if(exists(user)) {
         return false
     }
@@ -23,8 +40,7 @@ export function saveBankUser(user: BankUser): boolean {
         return false
     }
 
-    persist(user)
-    return exists(user)
+    return true
 }
 
 /**
@@ -43,6 +59,10 @@ function containsSpaces(email: String): boolean {
     return email.indexOf(" ") >= 0
 }
 
+/**
+ * @param field Any user String.
+ * @returns True if string is blank.
+ */
 function isBlank(field: String): boolean {
     return field.length === 0
 }
