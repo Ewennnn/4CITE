@@ -72,4 +72,16 @@ describe("Bank user tests", () => {
 
         expect(result).to.be.false
     })
+
+    it("should not save if no email is entered", () => {
+        const bankUser = new BankUser(
+            "name",
+            "user",
+            ""
+        )
+
+        const result = save(bankUser)
+
+        expect(result).to.be.false
+    })
 })
