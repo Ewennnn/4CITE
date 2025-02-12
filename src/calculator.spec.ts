@@ -1,5 +1,5 @@
 import { describe } from "mocha";
-import { divide, substract } from "./calculator";
+import { divide, substract, multiply } from "./calculator";
 import { expect } from "chai";
 
 describe("Substraction tests", () => {
@@ -75,3 +75,56 @@ describe("Division tests", () => {
         expect(() => divide(1, 0)).to.throw("Divide by 0")
     })
 })
+
+describe("Multiplication tests", () => {
+    it("should return 0 when multiply 0 by any number", () => {
+        expect(multiply(0, 0)).to.equals(0);
+        expect(multiply(0, 1)).to.equals(0);
+        expect(multiply(0, -1)).to.equals(0);
+        expect(multiply(0, 1000)).to.equals(0);
+    });
+
+    it("should return the same number when multiply by 1", () => {
+        expect(multiply(1, 1)).to.equals(1);
+        expect(multiply(2, 1)).to.equals(2);
+        expect(multiply(-5, 1)).to.equals(-5);
+    });
+
+    it("should return the negated number when multiply by -1", () => {
+        expect(multiply(1, -1)).to.equals(-1);
+        expect(multiply(-2, -1)).to.equals(2);
+        expect(multiply(5, -1)).to.equals(-5);
+    });
+
+    it("should return 4 when multiply 2 by 2", () => {
+        expect(multiply(2, 2)).to.equals(4);
+    });
+
+    it("should return 6 when multiply 2 by 3", () => {
+        expect(multiply(2, 3)).to.equals(6);
+    });
+
+    it("should return -6 when multiply -2 by 3", () => {
+        expect(multiply(-2, 3)).to.equals(-6);
+    });
+
+    it("should return 9 when multiply 3 by 3", () => {
+        expect(multiply(3, 3)).to.equals(9);
+    });
+
+    it("should throw when multiply Number.MAX_VALUE by 2", () => {
+        expect(() => multiply(Number.MAX_VALUE, 2)).to.throw("Infinity value");
+    });
+
+    it("should throw when multiply Number.MIN_VALUE by 0.5", () => {
+        expect(() => multiply(Number.MIN_VALUE, 0.5)).to.throw("Infinity value");
+    });
+
+    it("should return Number.MAX_VALUE when multiply Number.MAX_VALUE by 1", () => {
+        expect(multiply(Number.MAX_VALUE, 1)).to.equals(Number.MAX_VALUE);
+    });
+
+    it("should return Number.MIN_VALUE when multiply Number.MIN_VALUE by 1", () => {
+        expect(multiply(Number.MIN_VALUE, 1)).to.equals(Number.MIN_VALUE);
+    });
+});
