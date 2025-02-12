@@ -52,4 +52,10 @@ describe("Division tests", () => {
 
         expect(result).to.equals(1/3)
     })
+
+    it("should return 4 when divide 16 by 4", () => {
+        const result = divide(16, 4)
+
+        expect(result).to.equals(4)
+    })
 })
