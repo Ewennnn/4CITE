@@ -84,4 +84,16 @@ describe("Bank user tests", () => {
 
         expect(result).to.be.false
     })
+
+    it("should not save if username field is missing", () => {
+        const bankUser = new BankUser(
+            "",
+            "user",
+            "user.name@mail.com"
+        )
+
+        const result = save(bankUser)
+
+        expect(result).to.be.false
+    })
 })

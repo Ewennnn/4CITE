@@ -7,6 +7,10 @@ export function saveBankUser(user: BankUser): boolean {
         return false
     }
 
+    if(isBlank(user.firstname)) {
+        return false
+    }
+
     if (!containsArobase(user.email)) {
         return false
     }
@@ -33,4 +37,8 @@ function containsArobase(email: String): boolean {
  */
 function containsSpaces(email: String): boolean {
     return email.indexOf(" ") >= 0
+}
+
+function isBlank(field: String): boolean {
+    return field.length === 0
 }
