@@ -26,6 +26,11 @@ describe("Substraction tests", () => {
 
         expect(result).to.equals(-1)
     })
+
+    it("should throws when substract min number and 1", () => {
+        
+        expect(() => substract(Number.MIN_VALUE, 1)).to.throw("Infinity")
+    })
 })
 
 describe("Division tests", () => {

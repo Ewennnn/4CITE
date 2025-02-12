@@ -1,4 +1,8 @@
 export function substract(a: number, b: number): number {
+    if (a === Number.MIN_VALUE && b > 0) {
+        throw new Error("Infinity value")
+    }
+    
     return a - b
 }
 
