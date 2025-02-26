@@ -2,5 +2,5 @@ name: "Display Commit Info"
 description: "Displays commit SHA, author, and timestamp in the logs"
 author: "Ewennn_"
 runs:
-  using: "node22"
+  using: "node20"
   main: "index.js"
