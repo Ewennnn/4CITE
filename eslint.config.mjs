@@ -11,7 +11,7 @@ export default [
   ...tseslint.configs.recommended,
 
   {
-    ignores: ["build"],
+    ignores: ["build", ".github"],
   },
   {
     rules: {

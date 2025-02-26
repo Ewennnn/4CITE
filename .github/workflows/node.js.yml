@@ -30,6 +30,9 @@ jobs:
         echo "- Event: ${{ github.event_name }}"
         echo "- Branch / Ref: ${{github.ref}}"
     
+    - name: Display Commit Info (Custom Action)
+      uses: ./.github/actions/commit-info
+
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
       with:
