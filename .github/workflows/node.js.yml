@@ -29,7 +29,6 @@ jobs:
         echo "- Repository: ${{ github.repository }}"
         echo "- Event: ${{ github.event_name }}"
         echo "- Branch / Ref: ${{github.ref}}"
-        || echo "Failed during show triggers informations"
     
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
