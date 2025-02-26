@@ -1,6 +1,6 @@
 import { describe } from "mocha";
 import { BankUser } from "./user/user";
-import { expect, use } from "chai";
+import { expect } from "chai";
 import { save } from "./bank-controller";
 import { clear } from "./bank-repository";
 import { isValidEmail } from "./bank-service";

@@ -39,7 +39,7 @@ function isValidUser(user: BankUser) {
     return true
 }
 
-export function isValidEmail(email: String): boolean {
+export function isValidEmail(email: string): boolean {
     if (!containsArobase(email)) {
         return false
     }
@@ -55,7 +55,7 @@ export function isValidEmail(email: String): boolean {
  * @param email User email.
  * @returns True if email contains '@'.
  */
-function containsArobase(email: String): boolean {
+function containsArobase(email: string): boolean {
     return email.indexOf("@") >= 0
 }
 
@@ -63,7 +63,7 @@ function containsArobase(email: String): boolean {
  * @param email User email.
  * @returns True if email contains ' '.
  */
-function containsSpaces(email: String): boolean {
+function containsSpaces(email: string): boolean {
     return email.indexOf(" ") >= 0
 }
 
@@ -71,6 +71,6 @@ function containsSpaces(email: String): boolean {
  * @param field Any user String.
  * @returns True if string is blank.
  */
-function isBlank(field: String): boolean {
+function isBlank(field: string): boolean {
     return field.length === 0
 }

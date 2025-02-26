@@ -1,6 +1,6 @@
 import { BankUser } from "./user/user";
 
-const db: Array<BankUser> = new Array()
+const db: BankUser[] = [];
 
 export function clear() {
     db.splice(0, db.length)
