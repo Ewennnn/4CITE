@@ -20,6 +20,16 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
+
+    - name: Trigger informations
+      run: |
+        echo "- Commit SHA:${{ github.sha }}"
+        echo "- Commit Autho: ${{ github.actor }}"
+        echo "- Commit Timestamp: $(git log -i --format=%cd)"
+        echo "- Repository: ${{ github.repository }}"
+        echo "- Event: ${{ github.event_name }}"
+        echo "- Branch / Ref: ${{github.ref}}"
+        || echo "Failed during show triggers informations"
     
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
